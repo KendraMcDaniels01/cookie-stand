@@ -1,0 +1,52 @@
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+a {
+  font-size: 2em;
+}
+#pictures {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#storehours {
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+}
+#container {
+  background-color: lavender;
+  font-size: 1em;
+  width: 90%;
+  height: 600px;
+  margin: auto;
+  border: 5px solid plum;
+  justify-content: left;
+  align-items: center;
+}
+#container div {
+  height: 120px;
+}
+table {
+  margin: auto;
+  width: 80%;
+  border: 1px solid;
+  font-size: 2vw;
+}
+tr:first-child {
+  background-color: aquamarine;
+}
+table:first-child {
+  background-color: lightblue;
+}
+tr {
+  border: 1px solid;
+}
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
