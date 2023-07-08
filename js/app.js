@@ -4,9 +4,6 @@ let locHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','
 
 
 let storeSection = document.getElementById('stores');
-const storeArray = [];
-
-
 
 function Location(storeName, min, max, avg){
   this.store = storeName;
@@ -23,11 +20,11 @@ let locDubai = new Location('Dubai', 11, 38, 3.7);
 let locParis = new Location('Paris', 20, 38, 2.3);
 let locLima = new Location('Lima', 2, 16, 4.6);
 
-
+let storeArray = [locSeattle,locTokyo,locDubai,locParis,locLima];
 
 //Hour heading for table
 let hourHeading = document.createElement('tr');
-hourHeading.textContent = '';
+hourHeading.textContent = 'Locations';
 storeSection.appendChild(hourHeading);
 for (let i = 0; i < locHours.length; i++){
   let hourLabel = document.createElement('td');
@@ -55,8 +52,34 @@ Location.prototype.render = function(){
   let totalListItem = document.createElement('td');
   totalListItem.textContent = this.saleTotal;
   storeTable.appendChild(totalListItem);
+};
 
-  console.log(this.saleNum);
+
+
+//footer totals
+let footer = function(){
+  let hourTotals = document.createElement('tr');
+  hourTotals.textContent = 'Total ';
+  storeSection.appendChild(hourTotals);
+
+  let totalTotal = 0;
+
+  for (let i = 0; i < locHours.length; i++){
+    let hourlyTotal = 0;
+    let hourTotalLabel = document.createElement('td');
+    for(let j = 0; j < storeArray.length; j++){
+      hourlyTotal += storeArray[j].saleNum[i];
+      console.log(storeArray[j]);
+      console.log(storeArray[j].saleNum[i]);
+      console.log(hourlyTotal);
+    }
+    totalTotal += hourlyTotal;
+    hourTotalLabel.textContent = hourlyTotal;
+    hourTotals.appendChild(hourTotalLabel);
+  }
+  let grandTotal = document.createElement('td');
+  grandTotal.textContent = totalTotal;
+  hourTotals.appendChild(grandTotal);
 };
 
 
@@ -65,21 +88,4 @@ locTokyo.render();
 locDubai.render();
 locParis.render();
 locLima.render();
-
-//wasn't able to get the stretch goal yet, footer totals
-let hourTotals = document.createElement('tr');
-hourTotals.textContent = 'Total ';
-storeSection.appendChild(hourTotals);
-let hourlyTotal = 0;
-for (let i = 0; i < locHours.length; i++){
-  let hourTotalLabel = document.createElement('td');
-  for(let i = 0; i < storeArray.length; i++){
-    hourlyTotal += storeArray[i].saleNum[i];
-    console.log(storeArray[i]);
-  }
-  hourTotalLabel.textContent = hourlyTotal;
-  hourTotals.appendChild(hourTotalLabel);
-}
-let totalGrand = document.createElement('td');
-totalGrand.textContent = 'Total';
-hourHeading.appendChild(totalHeading);
+footer();
