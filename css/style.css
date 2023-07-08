@@ -30,6 +30,7 @@ a {
 #container div {
   height: 120px;
 }
+
 table {
   margin: auto;
   width: 80%;
@@ -39,9 +40,6 @@ table {
 tr:first-child {
   background-color: aquamarine;
 }
-table:first-child {
-  background-color: lightblue;
-}
 tr {
   border: 1px solid;
 }
@@ -49,4 +47,14 @@ td {
   border: 1px solid;
   text-align: center;
 }
-
+form {
+  Margin: auto;
+  border: 1px solid black;
+  width: 80%;
+  justify-content: center;
+}
+label {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}

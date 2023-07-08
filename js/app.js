@@ -69,9 +69,6 @@ let footer = function(){
     let hourTotalLabel = document.createElement('td');
     for(let j = 0; j < storeArray.length; j++){
       hourlyTotal += storeArray[j].saleNum[i];
-      console.log(storeArray[j]);
-      console.log(storeArray[j].saleNum[i]);
-      console.log(hourlyTotal);
     }
     totalTotal += hourlyTotal;
     hourTotalLabel.textContent = hourlyTotal;
@@ -89,3 +86,24 @@ locDubai.render();
 locParis.render();
 locLima.render();
 footer();
+
+
+let locationForm = document.getElementById('location');
+
+function handleSubmit(event){
+  event.preventDefault();
+  let newStoreName = event.target.newStoreName.value;
+  let newMinCust = event.target.newMinCust.value;
+  let newMaxCust = event.target.newMaxCust.value;
+  let newAvgSale = event.target.newAvgSale.value;
+  console.log(newStoreName, newMaxCust, newMinCust, newAvgSale);
+
+  let newStore = new Location(newStoreName, Number(newMinCust), Number(newMaxCust), Number(newAvgSale));
+  console.log(newStore);
+
+  storeArray.push(newStore);
+  storeSection.deleteRow((storeArray.length));
+  newStore.render();
+  footer();
+}
+locationForm.addEventListener('submit',handleSubmit);
