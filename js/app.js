@@ -96,10 +96,8 @@ function handleSubmit(event){
   let newMinCust = event.target.newMinCust.value;
   let newMaxCust = event.target.newMaxCust.value;
   let newAvgSale = event.target.newAvgSale.value;
-  console.log(newStoreName, newMaxCust, newMinCust, newAvgSale);
 
   let newStore = new Location(newStoreName, Number(newMinCust), Number(newMaxCust), Number(newAvgSale));
-  console.log(newStore);
 
   storeArray.push(newStore);
   storeSection.deleteRow((storeArray.length));
